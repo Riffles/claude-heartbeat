@@ -1,14 +1,8 @@
 # claude-heartbeat
 
-Stateless autonomous agent for Claude Code — no `-p`, no SDK credits.
+Stateless autonomous agent for Claude Code.
 
-The heartbeat hook turns an interactive Claude Code session into a stateless task processor. Each message from the inbox gets its own fresh session, just like `-p` — but using your regular subscription.
-
-## Why
-
-Anthropic is separating `-p` and SDK usage into a dedicated credit bucket. If you've been using `claude -p` for automation, your costs just went up.
-
-The heartbeat hook gives you `-p` behavior in **interactive mode**, which uses your regular subscription — not SDK credits.
+The heartbeat hook turns an interactive Claude Code session into a stateless task processor. Each message from the inbox gets its own fresh session.
 
 ## How it works
 
@@ -89,7 +83,6 @@ node examples/webhook-receiver.js
 
 ## What you get
 
-- **No SDK credits** — interactive mode uses your subscription
 - **Stateless** — each message gets fresh context, like `-p`
 - **Autonomous** — watches inbox, processes messages, writes responses
 - **Cheap idle** — minimal ticks (~20 tokens) while waiting for work
@@ -179,7 +172,3 @@ cd ~/agents/research && node supervisor.js
 - `examples/cron-trigger.js` — inject tick messages on a schedule
 - `examples/webhook-receiver.js` — HTTP endpoint that writes to inbox
 - `relay/relay.js` — Discord relay that sends outbox messages
-
-## Built by
-
-[Convergence](https://discord.gg/hkcK5s3zUB) — companion AI with memory, personality, and physical connection.
